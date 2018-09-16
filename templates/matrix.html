@@ -1,0 +1,31 @@
+<table class="table">
+    <thead>
+        <tr>
+            {% for character in range(3) %}
+                <th scope="col"></th>
+            {% endfor %}
+            {% for character in s2 %}
+                <th scope="col">{{ character }}</th>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for character in range(2) %}
+                <th scope="col"></th>
+            {% endfor %}
+            {% for number in range(s2|length + 1) %}
+                <th scope="col">{{ number }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for num in range(s1|length + 1) %}
+            <tr>
+                <th scope="row">{{ s1[num - 1] if num > 0 else "" }}</th>
+                <th scope="row">{{ num }}</th>
+                {% for element in matrix[num] %}
+                    <td>{{ element[0] }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
